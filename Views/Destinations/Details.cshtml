@@ -1,0 +1,22 @@
+@{ Layout = "_Layout"; }
+
+@using TravelClient.Models;
+@model TravelClient.Models.Destination
+
+<h5>@Html.DisplayFor(model => model.Name)</h5>
+<li>City: @Html.DisplayFor(model => model.City)</li>
+    <li>Country: @Html.DisplayFor(model => model.Country)</li>
+    <li>Overall Rating: @Html.DisplayFor(model => model.AvgRating)</li>
+<h6>Reviews:</h6>
+@foreach(var review in ViewBag.reviews)
+{
+    <div class = "card" style = "padding-left: 5px; padding-top: 5px; background-color: lightgrey; width: 50%;">
+        <h3>Author</h3>
+        <p class = "deets">@review.Author</p>
+        <h3>Review</h3>
+        <p class = "deets">@review.ReviewText</p>
+        <h3>Rating</h3>
+        <h5 class = "deets" style = "margin-left: 20px;">@review.Rating</h5>
+    </div>
+    <br>
+}

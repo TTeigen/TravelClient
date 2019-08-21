@@ -1,13 +1,16 @@
 @model IEnumerable<TravelClient.Models.Destination>
 
 <h2>All Destinations</h2>
+
 <hr />
+
 <ol>
     @foreach (var destination in Model)
     {
+        Console.WriteLine(destination);
         <li>
             <ul>
-                <li><strong>@Html.DisplayFor(modelItem => destination.Name)</strong></li>
+                <li><strong>@Html.ActionLink($"{destination.Name}", "Details", new { id = destination.DestinationId})</li>
                 <li>City: @Html.DisplayFor(modelItem => destination.City)</li>
                 <li>Country: @Html.DisplayFor(modelItem => destination.Country)</li>
                 <li>Overall Rating: @Html.DisplayFor(modelItem => destination.AvgRating)</li>

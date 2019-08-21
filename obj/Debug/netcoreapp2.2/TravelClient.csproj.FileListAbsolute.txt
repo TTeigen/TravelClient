@@ -25,3 +25,4 @@
 /Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/TravelClient.pdb
 /Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/TravelClient.csproj.CopyComplete
 /Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/Razor/Views/Destinations/Details.g.cshtml.cs
+/Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/Razor/Views/Destinations/Create.g.cshtml.cs
