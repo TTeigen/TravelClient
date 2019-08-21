@@ -73,7 +73,7 @@ namespace TravelClient.Models
         {
             {
             var client = new RestClient("http://localhost:5000/api/");
-            var request = new RestRequest("destinations/"+id, Method.GET);
+            var request = new RestRequest("destinations/"+id, Method.DELETE);
             var response = new RestResponse();
             Task.Run(async () =>
             {
