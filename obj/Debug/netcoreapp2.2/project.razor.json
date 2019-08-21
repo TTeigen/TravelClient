@@ -2943,6 +2943,11 @@
   "RootNamespace": "TravelClient",
   "Documents": [
     {
+      "FilePath": "Views/Destinations/Delete.cshtml",
+      "TargetPath": "Views/Destinations/Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Destinations/Details.cshtml",
       "TargetPath": "Views/Destinations/Details.cshtml",
       "FileKind": "mvc"
