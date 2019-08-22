@@ -1,0 +1,18 @@
+@model TravelClient.Models.Review
+
+@using (Html.BeginForm())
+{
+    <input name="DestinationId" type="hidden" value="@ViewBag.DestinationId">
+   
+    <label>Reviews</label>
+    @Html.TextBoxFor(model => model.ReviewText)
+
+    @Html.LabelFor(model => model.Author)
+    @Html.TextBoxFor(model => model.Author)
+
+    @Html.LabelFor(model => model.Rating)
+    @Html.TextBoxFor(model => model.Rating)
+
+    <input type="submit" value="Add" class="btn btn-primary" />
+} 
+@Html.ActionLink("Cancel", "Details", "Destinations", new { id = @ViewBag.DestinationId })

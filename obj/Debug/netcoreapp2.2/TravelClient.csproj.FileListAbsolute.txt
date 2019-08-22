@@ -26,3 +26,6 @@
 /Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/TravelClient.csproj.CopyComplete
 /Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/Razor/Views/Destinations/Details.g.cshtml.cs
 /Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/Razor/Views/Destinations/Create.g.cshtml.cs
+/Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/Razor/Views/Destinations/Delete.g.cshtml.cs
+/Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/Razor/Views/Reviews/Create.g.cshtml.cs
+/Users/Guest/Desktop/TravelClient/obj/Debug/netcoreapp2.2/Razor/Views/Reviews/Delete.g.cshtml.cs

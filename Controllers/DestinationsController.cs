@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using TravelClient.Models;
 
@@ -14,15 +15,29 @@ namespace TravelClient.Controllers
         public IActionResult Details(int id)
         {
             var destinationDeets = Destination.GetDestinationDetails(id);
-            var reviewList = destinationDeets.Reviews;
-            ViewBag.reviews = reviewList;
             return View(destinationDeets);
         }
 
         public IActionResult Delete(int id)
         {
-            var allDestinations = Destination.DeleteDestination(id);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(id);
+            Console.ResetColor();
+            
+            Destination.DeleteDestination(id);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Destination destination)
+        {
+            Destination.AddDestination(destination);
+            return View();
         }
     }
 }

@@ -19,7 +19,16 @@ namespace TravelClient.Models
         public double AvgRating {get;set;}
         public ICollection<Review> Reviews { get; set; }
 
-
+        //API REQUEST METHOD
+        public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
+        {
+            var tcs = new TaskCompletionSource<IRestResponse>();
+            theClient.ExecuteAsync(theRequest, response => {
+                tcs.SetResult(response);
+            });
+            return tcs.Task;
+        }
+        //SHOWS ALL DESTINATIONS
         public static List<Destination> GetAllDestinations()
         {
             var client = new RestClient("http://localhost:5000/api/");
@@ -33,14 +42,7 @@ namespace TravelClient.Models
             var destinationList = JsonConvert.DeserializeObject<List<Destination>>(jsonResponse.ToString());
             return destinationList;
         }
-        public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
-        {
-            var tcs = new TaskCompletionSource<IRestResponse>();
-            theClient.ExecuteAsync(theRequest, response => {
-                tcs.SetResult(response);
-            });
-            return tcs.Task;
-        }
+        //CREATES A NEW DESTINATION THROUGH API
         public static void AddDestination(Destination destination)
         {
             var client = new RestClient("http://localhost:5000/api/");
@@ -53,7 +55,7 @@ namespace TravelClient.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
         }
-
+        //SHOWS DETAILS FOR A SINGLE DESTINATION
         public static Destination GetDestinationDetails(int id)
         {
             {
@@ -69,19 +71,17 @@ namespace TravelClient.Models
             return destination;
             }
         }
-        public static Destination DeleteDestination(int id)
+        //DELETES THE DESTINATION
+        public static void DeleteDestination(int id)
         {
             {
-            var client = new RestClient("http://localhost:5000/api/");
-            var request = new RestRequest("destinations/"+id, Method.DELETE);
-            var response = new RestResponse();
-            Task.Run(async () =>
+                var client = new RestClient("http://localhost:5000/api/");
+                var request = new RestRequest("destinations/"+id, Method.DELETE);
+                var response = new RestResponse();
+                Task.Run(async () =>
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
-            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            var destination = JsonConvert.DeserializeObject<Destination>(jsonResponse.ToString());
-            return destination;
             }
         }
 
