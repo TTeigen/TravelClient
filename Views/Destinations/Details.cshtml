@@ -19,6 +19,7 @@
         <p class = "deets">@review.ReviewText</p>
         <h3>Rating</h3>
         <h5 class = "deets" style = "margin-left: 20px;">@review.Rating</h5>
+        @Html.ActionLink("Delete Review", "Delete", "Reviews", new { id = review.ReviewId })
     </div>
     <br>
 }

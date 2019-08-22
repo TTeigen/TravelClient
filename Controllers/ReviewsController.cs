@@ -14,7 +14,7 @@ namespace TravelClient.Controllers
             Console.ResetColor();
             
             Review.DeleteReview(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Destinations");
         }
         public IActionResult Create(int id)
         {
